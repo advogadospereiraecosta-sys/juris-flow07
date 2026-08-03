@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* === Fontes === */
+    --vf-font-sans: 'Inter', 'Söhne', system-ui, -apple-system, sans-serif;
+    --vf-font-serif: 'Source Serif Pro', 'PT Serif', Georgia, serif;
+    --vf-font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+    /* === Surfaces (Dark default) === */
+    --vf-surface-app: 7 8 9;
+    --vf-surface-canvas: 14 16 20;
+    --vf-surface-card: 24 27 34;
+    --vf-surface-elevated: 37 40 48;
+    --vf-surface-border: 37 40 48;
+    --vf-surface-hover: 46 49 56;
+
+    /* === Ink === */
+    --vf-ink-default: 238 239 241;
+    --vf-ink-muted: 176 180 188;
+    --vf-ink-subtle: 82 87 98;
+    --vf-ink-inverse: 14 16 20;
+
+    /* === Brand === */
+    --vf-brand: 107 143 181;
+    --vf-brand-hover: 148 176 204;
+    --vf-brand-foreground: 255 255 255;
+
+    /* === Semântico === */
+    --vf-success: 77 186 94;
+    --vf-warning: 255 174 10;
+    --vf-danger: 251 101 101;
+    --vf-info: 91 141 185;
+
+    /* === Raios === */
+    --vf-radius-sm: 6px;
+    --vf-radius-md: 10px;
+    --vf-radius-lg: 14px;
+    --vf-radius-xl: 20px;
+  }
+
+  [data-theme='light'] {
+    --vf-surface-app: 250 250 249;
+    --vf-surface-canvas: 244 244 242;
+    --vf-surface-card: 255 255 255;
+    --vf-surface-elevated: 255 255 255;
+    --vf-surface-border: 232 232 229;
+    --vf-surface-hover: 244 244 242;
+
+    --vf-ink-default: 24 27 34;
+    --vf-ink-muted: 82 87 98;
+    --vf-ink-subtle: 122 127 137;
+    --vf-ink-inverse: 255 255 255;
+  }
+
+  * {
+    border-color: rgb(var(--vf-surface-border));
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: rgb(var(--vf-surface-app));
+    color: rgb(var(--vf-ink-default));
+    font-family: var(--vf-font-sans);
+    font-feature-settings: 'cv11', 'ss01';
+    font-variation-settings: 'opsz' 32;
+  }
+
+  *:focus-visible {
+    outline: 2px solid rgb(var(--vf-brand));
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background-color: rgb(var(--vf-brand) / 0.3);
+  }
+
+  /* Scrollbar customizada (dark) */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgb(var(--vf-surface-app));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(var(--vf-ink-subtle));
+    border-radius: 5px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(var(--vf-ink-muted));
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .vf-card {
+    background-color: rgb(var(--vf-surface-card));
+    border: 1px solid rgb(var(--vf-surface-border));
+    border-radius: var(--vf-radius-md);
+  }
+
+  .vf-card-hover {
+    @apply vf-card transition-colors;
+  }
+  .vf-card-hover:hover {
+    background-color: rgb(var(--vf-surface-hover));
+  }
+
+  .vf-input {
+    background-color: rgb(var(--vf-surface-elevated));
+    border: 1px solid rgb(var(--vf-surface-border));
+    color: rgb(var(--vf-ink-default));
+    border-radius: var(--vf-radius-sm);
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    transition: border-color 150ms;
+  }
+  .vf-input:focus {
+    border-color: rgb(var(--vf-brand));
+    outline: none;
+  }
+
+  .vf-display-xl {
+    font-size: 4.5rem;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    font-weight: 700;
+  }
+
+  .vf-display-lg {
+    font-size: 2.75rem;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    font-weight: 600;
+  }
+
+  .vf-heading {
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .vf-caption {
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    color: rgb(var(--vf-ink-muted));
+  }
+
+  .vf-overline {
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: rgb(var(--vf-ink-muted));
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

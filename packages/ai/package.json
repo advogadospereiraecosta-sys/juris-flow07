@@ -1,0 +1,21 @@
+{
+  "name": "@juris-flow/ai",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.1",
+    "@juris-flow/config": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2"
+  }
+}

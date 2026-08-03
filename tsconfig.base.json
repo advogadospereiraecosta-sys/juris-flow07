@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@juris-flow/db": ["./packages/db/src/index.ts"],
+      "@juris-flow/db/*": ["./packages/db/src/*"],
+      "@juris-flow/ui": ["./packages/ui/src/index.ts"],
+      "@juris-flow/ui/*": ["./packages/ui/src/*"],
+      "@juris-flow/ai": ["./packages/ai/src/index.ts"],
+      "@juris-flow/ai/*": ["./packages/ai/src/*"],
+      "@juris-flow/config": ["./packages/config/src/index.ts"],
+      "@juris-flow/types": ["./packages/types/src/index.ts"],
+      "@juris-flow/auth": ["./packages/auth/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", ".next", "dist", "build"]
+}
