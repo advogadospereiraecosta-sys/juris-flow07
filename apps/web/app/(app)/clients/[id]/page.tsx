@@ -116,7 +116,7 @@ export default async function ClientDetailPage({ params }: { params: { id: strin
                 </p>
               ) : (
                 <ul className="space-y-2">
-                  {cases.map((cs: { id: string; title: string; status: string; cnjNumber: string | null }) => (
+                  {cases.map((cs: { id: string; title: string; status: string; cnjNumber: string | null; legalArea: string; updatedAt: Date }) => (
                     <li key={cs.id}>
                       <Link href={`/processos/${cs.id}`} className="block rounded-md border border-ink-800 p-3 hover:border-ink-600 transition-colors">
                         <div className="flex items-start justify-between gap-2">
